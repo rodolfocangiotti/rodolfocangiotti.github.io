@@ -46,6 +46,25 @@
   text-align: center;
 }
 
+.body-footer .further-information {
+  margin-left: 0px;
+  margin-top: 4px;
+  margin-right: 0px;
+  margin-bottom: 4px;
+  height: auto;
+  width: auto;
+}
+
+.body-footer .further-information p {
+  margin: auto;
+  height: auto;
+  width: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+
 .body-footer a {
   text-decoration: none;
   color: #0099cc;
