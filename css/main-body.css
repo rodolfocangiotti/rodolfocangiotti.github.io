@@ -1,0 +1,19 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+
+.main-body {
+  margin: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: auto;
+  width: 960px;
+}
+
+.main-body p {
+  margin: auto;
+  height: auto;
+  width: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}

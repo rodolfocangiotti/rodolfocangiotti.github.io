@@ -1,0 +1,31 @@
+@import "https://fonts.googleapis.com/css?family=Poiret+One";
+
+.body-header {
+  margin: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  height: auto;
+  width: 1024px;
+}
+
+.body-header h1 {
+  display: inline-block;
+  position: static;
+  margin: auto;
+  height: inherit;
+  width: inherit;
+  font-family: "Poiret One", cursive;
+  font-size: 72px;
+  text-align: center;
+}
+
+.body-header h2 {
+  display: inline-block;
+  position: static;
+  margin: auto;
+  height: inherit;
+  width: inherit;
+  font-family: "Poiret One", cursive;
+  font-size: 24px;
+  text-align: center;
+}

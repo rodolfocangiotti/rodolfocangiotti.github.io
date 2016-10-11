@@ -1,0 +1,87 @@
+.contact-bar {
+  margin: auto;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: auto;
+  width: 148px;
+}
+
+.contact-bar #email {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.contact-bar #email a {
+  position: absolute;
+  /* Posizionamento assoluto? */
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../contact-icons/email-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+  /* Rendo la transizione interpretabile anche da altri browsers */
+  -webkit-transition-property: background-image;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-image;
+  -moz-transition-duration: 500ms;
+}
+
+.contact-bar #email a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../contact-icons/email-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+  -webkit-transition-property: background-image;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-image;
+  -moz-transition-duration: 500ms;
+}
+
+.contact-bar #skype {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.contact-bar #skype a {
+  position: absolute;
+  /* Posizionamento assoluto? */
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../contact-icons/skype-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+  /* Rendo la transizione interpretabile anche da altri browsers */
+  -webkit-transition-property: background-image;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-image;
+  -moz-transition-duration: 500ms;
+}
+
+.contact-bar #skype a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../contact-icons/skype-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+  -webkit-transition-property: background-image;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-image;
+  -moz-transition-duration: 500ms;
+}

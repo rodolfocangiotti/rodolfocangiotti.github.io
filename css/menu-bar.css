@@ -1,0 +1,84 @@
+@import "https://fonts.googleapis.com/css?family=Lato:100,300";
+
+.menu-bar {
+  margin: auto;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  height: auto;
+  width: 208px;
+}
+
+.menu-bar .current-page {
+  display: inline-block;
+  position: static;
+  height: 32px;
+  width: 96px;
+}
+
+.menu-bar .current-page a {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+}
+
+.menu-bar .current-page a p {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  height: inherit;
+  width: inherit;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  color: #000000;
+  text-align: center;
+}
+
+.menu-bar .not-current-page {
+  display: inline-block;
+  position: static;
+  height: 32px;
+  width: 96px;
+}
+
+.menu-bar .not-current-page a {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+}
+
+.menu-bar .not-current-page a p {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  height: inherit;
+  width: inherit;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  color: #cccccc;
+  text-align: center;
+  transition-property: color;
+  transition-duration: 500ms;
+}
+
+.menu-bar .not-current-page a p:hover {
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  height: inherit;
+  width: inherit;
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  color: #000000;
+  text-align: center;
+  transition-property: color;
+  transition-duration: 500ms;
+}

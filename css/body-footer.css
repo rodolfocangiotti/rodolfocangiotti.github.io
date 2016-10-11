@@ -1,0 +1,61 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,400";
+
+.body-footer {
+  margin: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: auto;
+  width: 1024px;
+}
+
+.body-footer .copyrights {
+  margin-left: 0px;
+  margin-top: 16px;
+  margin-right: 0px;
+  margin-bottom: 4px;
+  height: auto;
+  width: auto;
+}
+
+.body-footer .copyrights p {
+  margin: auto;
+  height: auto;
+  width: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.body-footer .languages {
+  margin-left: 0px;
+  margin-top: 4px;
+  margin-right: 0px;
+  margin-bottom: 4px;
+  height: auto;
+  width: auto;
+}
+
+.body-footer .languages p {
+  margin: auto;
+  height: auto;
+  width: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.body-footer a {
+  text-decoration: none;
+  color: #0099cc;
+  transition-property: text-decoration;
+  transition-duration: 500ms;
+}
+
+.body-footer a:hover {
+  text-decoration: underline;
+  color: #0099cc;
+  transition-property: text-decoration;
+  transition-duration: 500ms;
+}

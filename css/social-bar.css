@@ -1,0 +1,233 @@
+.social-bar {
+  margin: auto;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-bottom: 8px;
+  height: auto;
+  width: 528px;
+}
+
+.social-bar #facebook {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #facebook a {
+  position: absolute;
+  /* Posizionamento assoluto? */
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/facebook-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+  /* Rendo la transizione interpretabile anche da altri browsers */
+  -webkit-transition-property: background-image;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-image;
+  -moz-transition-duration: 500ms;
+}
+
+.social-bar #facebook a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/facebook-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+  -webkit-transition-property: background-image;
+  -webkit-transition-duration: 500ms;
+  -moz-transition-property: background-image;
+  -moz-transition-duration: 500ms;
+}
+
+
+
+.social-bar #twitter {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #twitter a {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/twitter-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+.social-bar #twitter a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/twitter-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+
+
+.social-bar #instagram {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #instagram a {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/instagram-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+.social-bar #instagram a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/instagram-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+
+
+.social-bar #soundcloud {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #soundcloud a {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/soundcloud-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+.social-bar #soundcloud a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/soundcloud-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+
+
+.social-bar #youtube {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #youtube a {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/youtube-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+.social-bar #youtube a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/youtube-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+
+
+.social-bar #plus {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #plus a {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/plus-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+.social-bar #plus a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/plus-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+
+
+.social-bar #linkedin {
+  display: inline-block;
+  position: static;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  height: 64px;
+  width: 64px;
+}
+
+.social-bar #linkedin a {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  background-image: url("../social-icons/linkedin-white.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
+
+.social-bar #linkedin a:hover {
+  height: 64px;
+  width: 64px;
+  background-image: url("../social-icons/linkedin-black.png");
+  transition-property: background-image;
+  transition-duration: 500ms;
+}
