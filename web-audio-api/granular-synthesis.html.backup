@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Web Audio API</title>
+
+  </head>
+  <body>
+
+    <h1>Web Audio API.</h1>
+    <h2>Examples of Realtime Granular Synthesis.</h2>
+
+    <p>© 2017, Rodolfo Cangiotti. Some rights reserved.</p>
+
+
+
+    <script type="text/javascript">
+
+      function scheduloFunzione(t, deltaT, nomeFunzione) {
+        // Il parametro nomeFunzione accetta solo nomi di funzioni che non richiedono argomenti.
+        // Per ovviare a tale problema, si possono racchiudere funzioni con argomenti all'interno di una funzione anonima, a sua volta istanziata come argomento.
+        // Come ulteriore alternativa, si possono includere le suddette funzioni all'interno di un'altra non avente argomenti.
+
+        var timeout;
+        var timeoutID;
+
+        function scheduler() {
+          nomeFunzione()
+
+          clearTimeout(timeoutID);
+          timeout = Math.trunc(Math.random() * 2 * deltaT - deltaT) + t;
+          timeoutID = setTimeout(scheduler, timeout);
+        }
+
+        scheduler();
+
+      }
+
+
+
+      // BLOCCO WEB AUDIO API
+
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      var contextAudio = new AudioContext();
+
+      function generoGrano(durata, deltaDurata, f, deltaF, armonicita, deltaArmonicita, iM, deltaIM, livello, deltaLivello, pan, deltaPan) {
+
+        var durataGrano;
+        var fZeroGrano;
+        var armonicitaGrano;
+        var iMGrano;
+        var livelloGrano;
+        var panGrano;
+
+        var modulante;
+        var livelloModulante;
+        var portante;
+        var livelloPortante;
+        var inviluppo;
+
+        var timeoutID;
+
+        durataGrano = Math.trunc(Math.random() * 2 * deltaDurata - deltaDurata) + durata;
+        fGrano = Math.random() * 2 * deltaF - deltaF + f;
+        armonicitaGrano = Math.random() * 2 * deltaArmonicita - deltaArmonicita + armonicita;
+        iMGrano = Math.random() * 2 * deltaIM - deltaIM + iM;
+        livelloGrano = Math.random() * 2 * deltaLivello - deltaLivello + livello;
+        panGrano = Math.random() * 2 * deltaPan - deltaPan + pan;
+
+        function accensioneIstanza(durataGrano, fGrano, armonicitaGrano, iMGrano, livelloGrano, panGrano) {
+
+          modulante = contextAudio.createOscillator();
+          livelloModulante = contextAudio.createGain();
+          portante = contextAudio.createOscillator();
+          livelloPortante = contextAudio.createGain();
+          inviluppo = contextAudio.createGain();
+          pan = contextAudio.createStereoPanner();
+
+          modulante.frequency.value = fGrano * armonicitaGrano;
+          modulante.connect(livelloModulante);
+          livelloModulante.gain.value = modulante.frequency.value * iMGrano;
+          livelloModulante.connect(portante.frequency);
+          portante.frequency.value = fGrano;
+          portante.connect(livelloPortante);
+          livelloPortante.gain.value = livelloGrano;
+          livelloPortante.connect(inviluppo);
+          inviluppo.gain.setValueAtTime(0, contextAudio.currentTime);
+          inviluppo.gain.linearRampToValueAtTime(1, contextAudio.currentTime + durataGrano * 0.5 * 0.001);
+          inviluppo.gain.linearRampToValueAtTime(0, contextAudio.currentTime + durataGrano * 0.001);
+          inviluppo.connect(pan);
+          pan.pan.value = panGrano;
+          pan.connect(contextAudio.destination);
+
+          modulante.start(contextAudio.currentTime);
+          portante.start(contextAudio.currentTime);
+
+        }
+
+        function spegnimentoIstanza() {
+
+          modulante.disconnect(livelloModulante);
+          livelloModulante.disconnect(portante.frequency);
+          portante.disconnect(livelloPortante);
+          livelloPortante.disconnect(inviluppo);
+          inviluppo.disconnect(pan);
+          pan.connect(contextAudio.destination)
+
+          modulante.stop(contextAudio.currentTime);
+          portante.stop(contextAudio.currentTime);
+
+          clearTimeout(timeoutID);
+
+        }
+
+        accensioneIstanza(durataGrano, fGrano, armonicitaGrano, iMGrano, livelloGrano, panGrano);
+        timeoutID = setTimeout(spegnimentoIstanza, durataGrano * 1.1);
+
+      }
+
+
+
+      // FUNZIONE CALLBACK
+
+      function chiamoFunzione() {
+
+        generoGrano(350, 100, 55, 0.01, 1, 0.01, 6, 0.25, 0.4, 0.2, 0.5, 0.1);
+        generoGrano(350, 100, 82.5, 0.01, 1, 0.01, 5, 0.25, 0.2, 0.1, 0.75, 0.1);
+        generoGrano(350, 100, 110, 0.01, 1, 0.01, 4, 0.25, 0.1, 0.05, 0.25, 0.1);
+
+      }
+
+      // BLOCCO MAIN
+
+      scheduloFunzione(50, 25, chiamoFunzione);
+
+    </script>
+
+  </body>
+</html>
