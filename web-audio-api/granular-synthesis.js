@@ -123,7 +123,9 @@ function generoGrano(oggettoGrano) {
 
 }
 
-function scheduloGrano(t, deltaT) {
+
+
+function scheduloGrano(t, deltaT, dsp) {
 
   var timeout;
 
@@ -135,7 +137,11 @@ function scheduloGrano(t, deltaT) {
     generoGrano(flussoQuinta);
     generoGrano(flussoOttava);
 
-    setTimeout(scheduler, timeout);
+    if (dsp.stato) {
+
+      setTimeout(scheduler, timeout);
+
+    }
 
   }
 
@@ -153,7 +159,40 @@ flussoFondamentale =  new Grano(375, 125, 55, 0.01, 1, 0.01, 2, 0.25, 0.3, 0.1, 
 flussoQuinta =        new Grano(350, 100, 82.5, 0.01, 1, 0.01, 1.5, 0.25, 0.1, 0.05, 0.2, 0.1);
 flussoOttava =        new Grano(325, 75, 110, 0.01, 1, 0.01, 1, 0.25, 0.03333, 0.025, -0.2, 0.1);
 
-scheduloGrano(150, 50);
+
+
+
+
+
+var dsp;
+
+dsp = {stato: 0};
+// Genero un oggetto di nome dsp con proprietà stato
+// Tale proprietà sarà utilizzata come variabile puntabile e dereferenziabile.
+
+function dspOn() {
+
+  if (dsp.stato == 0) {
+
+    dsp.stato = 1;
+    scheduloGrano(150, 50, dsp);
+
+  }
+
+}
+
+function dspOff() {
+
+  if (dsp.stato == 1) {
+
+    dsp.stato = 0;
+
+  }
+
+}
+
+
+
 
 
 
