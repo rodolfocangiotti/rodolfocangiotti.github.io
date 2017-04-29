@@ -16,8 +16,9 @@ function Grano(durata, deltaDurata, frequenza, deltaFrequenza, armonicita, delta
 
 }
 
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var contextAudio = new AudioContext();
+
+
+var contextAudio;
 
 function generoGrano(oggettoGrano) {
 
@@ -125,7 +126,13 @@ function generoGrano(oggettoGrano) {
 
 
 
-function scheduloGrano(t, deltaT, dsp) {
+var dsp;
+
+dsp = {stato: 0, chiamate: 0};
+// Genero un oggetto di nome dsp con proprietà stato e chiamate.
+// Tali proprietà sarà utilizzate come variabili puntabili e dereferenziabili.
+
+function scheduloGrano(t, deltaT) {
 
   var timeout;
 
@@ -138,14 +145,45 @@ function scheduloGrano(t, deltaT, dsp) {
     generoGrano(flussoOttava);
 
     if (dsp.stato) {
-
       setTimeout(scheduler, timeout);
-
     }
 
   }
 
   scheduler();
+
+}
+
+function abilitoAudio() {
+
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  contextAudio = new window.AudioContext();
+
+  var oscillatore;
+  oscillatore = contextAudio.createOscillator();
+
+  oscillatore.frequency.value = 440;
+  oscillatore.connect(contextAudio.destination);
+
+  oscillatore.start(contextAudio.currentTime);
+  oscillatore.stop(contextAudio.currentTime + 0.025);
+
+  }
+
+function accendoDSP() {
+
+  if (dsp.stato == 0) {
+    dsp.stato = 1;
+    scheduloGrano(150, 50);
+  }
+
+}
+
+function spengoDSP() {
+
+  if (dsp.stato == 1) {
+    dsp.stato = 0;
+  }
 
 }
 
@@ -158,38 +196,6 @@ var flussoOttava;
 flussoFondamentale =  new Grano(375, 125, 55, 0.01, 1, 0.01, 2, 0.25, 0.3, 0.1, 0, 0.1);
 flussoQuinta =        new Grano(350, 100, 82.5, 0.01, 1, 0.01, 1.5, 0.25, 0.1, 0.05, 0.2, 0.1);
 flussoOttava =        new Grano(325, 75, 110, 0.01, 1, 0.01, 1, 0.25, 0.03333, 0.025, -0.2, 0.1);
-
-
-
-
-
-
-var dsp;
-
-dsp = {stato: 0};
-// Genero un oggetto di nome dsp con proprietà stato
-// Tale proprietà sarà utilizzata come variabile puntabile e dereferenziabile.
-
-function dspOn() {
-
-  if (dsp.stato == 0) {
-
-    dsp.stato = 1;
-    scheduloGrano(150, 50, dsp);
-
-  }
-
-}
-
-function dspOff() {
-
-  if (dsp.stato == 1) {
-
-    dsp.stato = 0;
-
-  }
-
-}
 
 
 
@@ -233,3 +239,17 @@ document.addEventListener("mousemove", function(evento) {
 
   }
 );
+
+document.getElementById("bottone-abilito-audio").addEventListener("click", function() {
+
+  if (dsp.chiamate == 0) {
+    dsp.chiamate = 1;
+    abilitoAudio();
+  }
+
+  }
+);
+
+document.getElementById("bottone-accendo-dsp").addEventListener("click", accendoDSP);
+
+document.getElementById("bottone-spengo-dsp").addEventListener("click", spengoDSP);
